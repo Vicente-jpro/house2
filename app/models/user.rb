@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -22,5 +23,7 @@ class User < ApplicationRecord
         .where("profile_lands.land_id = #{land.id}")
         .take
   end
+
+
   
 end
