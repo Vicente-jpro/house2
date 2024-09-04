@@ -2,16 +2,16 @@
 import "@hotwired/turbo-rails"
 import "./controllers"
 import * as bootstrap from "bootstrap"
-
 import "./custom" 
-import "./sidebars"
 import jquery from "jquery"
+//import "trix"
+//import "@rails/actiontext"
+
 
 window.jQuery = jquery 
 window.$ = jquery
 
 $(function(){
+
     console.log("Hello from jquery")
 })
-import "trix"
-import "@rails/actiontext"

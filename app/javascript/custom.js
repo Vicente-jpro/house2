@@ -8,8 +8,8 @@ $(document).ready(function(){
     $.get(
       `http://localhost:3000/cities/${province_id}/province`, 
       function(data, status){
-     // console.log(data, status);
-      
+//      console.log(data, status);
+
       $('.city_select')
       .empty()
 

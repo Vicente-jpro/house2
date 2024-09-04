@@ -4,6 +4,7 @@ class CitiesController < ApplicationController
      province = Province.new 
      province.id = params[:id]
      @cities = City.find_cities(province)
+
     render json: @cities
       
   end
