@@ -3,19 +3,17 @@ require 'resque/server'
 
 Rails.application.routes.draw do
   mount Resque::Server.new, :at => "/resque"
+  get "up" => "rails/health#show", as: :rails_health_check
+
   devise_for :users, controllers: {registrations: "registrations"}
 
   devise_scope :user do
     post '/users/sign_out', to: 'devise/sessions#destroy'
   end
 
-
   resources :contacts, only: [:create, :show]
   resources :plans_selecteds
   resources :plans
-  get "up" => "rails/health#show", as: :rails_health_check
-
-
 
   resources :favorite_lands, only: [:index, :create, :destroy]
   resources :favorite_houses, only: [:index, :create, :destroy]
