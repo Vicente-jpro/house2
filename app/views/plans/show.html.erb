@@ -11,7 +11,7 @@
       <div class="card-body">
         <h1 class="card-title pricing-card-title text-center text-pink"><%= @plan.price %><small class="text-muted fw-light">/mo</small></h1>
         <ul class="list-unstyled mt-3 mb-4 text-primary-emphasis">
-          <li><%= @plan.description %></li>
+          <li><%= simple_format(@plan.description)  %></li>
           <br>
          
         </ul>
