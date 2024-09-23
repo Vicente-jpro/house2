@@ -10,6 +10,11 @@
            <li> <%= link_to t("navbar.home"), root_path, class: "nav-link px-2 text-pink fs-5" %> </li>
           
           <% if user_signed_in? and !current_user.profile.nil?%>
+            <% if current_user.profile.super_adminstrador? %>
+              <li>
+                <%= link_to "Pendentes", pending_houses_path, class: "nav-link px-2 text-pink fs-5" %>
+              </li>
+            <% end %>
             <% if !current_user.profile.cliente? %>
               <!-- House -->
               <div class="dropdown">

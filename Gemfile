@@ -54,9 +54,10 @@ gem 'bootstrap_form', '~> 5.2', '>= 5.2.3'
 gem 'jquery-rails'
 gem 'kaminari', '~> 1.2', '>= 1.2.2'
 gem 'kaminari-bootstrap', '~> 3.0', '>= 3.0.1'
-gem 'rails-i18n', '~> 7.0.0'
 gem 'mini_magick', '~> 4.12'
+gem 'rails-i18n', '~> 7.0.0'
 gem 'resque', '~> 2.6'
+gem 'truncate_html', '~> 0.9.3'
 gem 'whenever', '~> 1.0' , require: false
 
 group :development, :test do
