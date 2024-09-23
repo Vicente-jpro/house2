@@ -39,10 +39,15 @@ Rails.application.routes.draw do
     get 'show_images' 
     
     collection do
+      get 'buy'
+      get 'pending'
+      get 'rent'
       get 'search'
       get 'search_advanced'
-      get 'rent'
-      get 'buy'
+    end
+
+    member do 
+      post 'pending_status'
     end
   
   end

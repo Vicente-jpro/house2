@@ -37,6 +37,10 @@
         <%= link_to t("links.edit") , edit_house_path(@house), class:"btn btn-info" %> 
         <%= button_to t('links.destroy'), @house, method: :delete, 
         class:"btn btn-danger  my-1 col-sm-12" %>
+        <% if current_user.profile.super_adminstrador? %>
+          <%= button_to "#{ @house.pending ? "Aprovar": "Reprovar" }", 
+          pending_status_house_path(@house), class: "btn btn-warning my-1 col-sm-12" %>
+        <% end %>
       </div>
     <% end %>
 

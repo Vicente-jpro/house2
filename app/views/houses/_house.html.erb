@@ -3,7 +3,6 @@
     <div class="col" id="<%= dom_id house %>">
       <div class="card border-light shadow-sm mb-5 bg-body-tertiary rounded">
       
-
           <% if house.house_images.attached? %>
             <%= render "images_index", images: house.house_images %>
           <% end %>

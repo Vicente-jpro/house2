@@ -49,6 +49,10 @@ class House < ApplicationRecord
     House.includes(:address, :dimention, :location)
   end
 
+  def self.find_all_pending
+    House.includes(:address, :dimention, :location).where(pending: true)
+  end
+
   def self.find_house_by_user(user, house)
     House.joins(:address)
          .joins(:profiles)

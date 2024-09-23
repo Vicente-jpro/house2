@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_12_27_200527) do
+ActiveRecord::Schema[7.1].define(version: 2024_09_23_170344) do
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -122,6 +122,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_27_200527) do
     t.integer "dimention_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "pending", default: true
     t.index ["address_id"], name: "index_houses_on_address_id"
     t.index ["dimention_id"], name: "index_houses_on_dimention_id"
     t.index ["location_id"], name: "index_houses_on_location_id"

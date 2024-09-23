@@ -1,5 +1,5 @@
 class HousesController < ApplicationController
-  before_action :set_house, only: %i[ show edit update destroy ]
+  before_action :set_house, only: %i[ show edit update destroy pending_status]
   before_action :authenticate_user!, 
     except: [ :show, :index, :show_images, :search, :search_advanced, :rent, :buy]
   before_action :get_profile, only: [ :create ]
@@ -45,6 +45,25 @@ class HousesController < ApplicationController
 
   def buy 
     @houses = House.buy.page(params[:page])
+  end
+
+  def pending
+    if current_user.profile.super_adminstrador?
+      @houses = House.find_all_pending.page(params[:page])
+    else
+      redirect_to houses_path, info: "Não tens permissão para acessar está area."
+    end
+  end
+
+  def pending_status
+    @house.pending = @house.pending? ? false : true
+
+    respond_to do |format|  
+      if @house.update(@house.as_json)
+        format.html { redirect_to house_path(@house), info: "Publicação aprovada com sucesso." }
+      end
+    end
+    
   end
 
   # GET /houses/search_advanced
