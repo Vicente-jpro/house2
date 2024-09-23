@@ -10,6 +10,7 @@ module HousesConcerns
       house = House.find_house_by_user(user, house)
       return !house.empty?
     end
+
     
     def to_house_model(house)
       house = House.new

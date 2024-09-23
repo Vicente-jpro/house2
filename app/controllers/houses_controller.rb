@@ -61,9 +61,10 @@ class HousesController < ApplicationController
   
   # GET /houses/search
   def search  
-    @houses = House.search_by(params)
+    @houses = House.search_by(params).page(params[:page])
+    
     if @houses.empty?
-      redirect_to houses_url(locale: I18n.locale), 
+      redirect_to houses_url, 
         info: t('controllers.house.info.no-properties-found')
     else
       flash[:info] = t('controllers.house.info.search-result')
