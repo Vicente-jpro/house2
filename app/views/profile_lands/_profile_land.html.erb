@@ -11,15 +11,19 @@
     
         <div class="card-body">
           <p class="card-text">
-
-              <strong class="text-pink"><%= land.title_land %></strong> <br>
+            <strong class="text-pink"><%= land.title_land %></strong> <br>
+          </p>
         
             <p class="text-primary-emphasis">
-                <%= land.description %>
+              <%= truncate_html(land.description) %>
             </p>
-              <span class="bg-green px-3">Venda</span> <br>
-              <%= land.price %>
-          </p>
+        
+            <div class="row">
+              <div class="col">
+                <strong class="text-pink fs-5"><%= land.price %> Kz</strong>
+              </div>
+            </div>
+
         </div>
       </div>
     </div>
