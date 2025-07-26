@@ -1,0 +1,25 @@
+<%# app/views/shared/_location_selects.html.erb %>
+<div data-controller="province-select">
+  <div class="mb-3">
+    <%= form.label :province_id, class: "form-label" %>
+    <%= form.collection_select :province_id,
+                             Province.all,
+                             :id,
+                             :province_name,
+                             { prompt: "Select a province" },
+                             { class: "form-select",
+                               data: { action: "change->province-select#change" } } %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :city_id, class: "form-label" %>
+    <%= form.collection_select :city_id,
+                             @cities || [],
+                             :id,
+                             :city_name,
+                             { prompt: "Select a city" },
+                             { class: "form-select",
+                               data: { province_select_target: "citySelect" },
+                               id: "city_select" } %>
+  </div>
+</div>
