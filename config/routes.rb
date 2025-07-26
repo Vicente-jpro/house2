@@ -1,4 +1,3 @@
-
 require 'resque/server'
 
 Rails.application.routes.draw do
@@ -17,9 +16,9 @@ Rails.application.routes.draw do
 
   resources :favorite_lands, only: [:index, :create, :destroy]
   resources :favorite_houses, only: [:index, :create, :destroy]
-  resources :profile_lands, only: [:index]
   resources :profiles
-  resources :cities, only: [:province] do 
+  resources :profile_lands, only: [:index]
+  resources :cities, only: [:index] do 
     member do 
       get 'province'
     end

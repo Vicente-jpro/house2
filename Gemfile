@@ -1,15 +1,17 @@
 source "https://rubygems.org"
 
-ruby "3.2.1"
+ruby "~> 3.3.7"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem "rails", "~> 7.1.3", ">= 7.1.3.2"
+#gem "rails", "~> 7.1.3", ">= 7.1.3.2"
+
+gem "rails", "~> 7.2.2"
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
 # Use sqlite3 as the database for Active Record
-gem "sqlite3", "~> 1.4"
+#gem 'sqlite3', '~> 2.6'
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", ">= 5.0"
@@ -55,10 +57,15 @@ gem 'jquery-rails'
 gem 'kaminari', '~> 1.2', '>= 1.2.2'
 gem 'kaminari-bootstrap', '~> 3.0', '>= 3.0.1'
 gem 'mini_magick', '~> 4.12'
-gem 'rails-i18n', '~> 7.0.0'
+gem 'rails-i18n', '~> 7.0'
 gem 'resque', '~> 2.6'
 gem 'truncate_html', '~> 0.9.3'
 gem 'whenever', '~> 1.0' , require: false
+  gem "pg", "~> 1.5"
+
+gem "dartsass-sprockets" 
+#gem "sassc-rails" 
+gem "dartsass-rails" 
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
