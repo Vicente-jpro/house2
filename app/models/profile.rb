@@ -34,5 +34,10 @@ class Profile < ApplicationRecord
            .where("profile_houses.house_id = #{house.id}")
            .take
   end
+
+  def self.is_super_adminstrador?(profile)
+    profile.profile_type == "super_adminstrador"
+  end
+
   
 end
