@@ -18,11 +18,8 @@ Rails.application.routes.draw do
   resources :favorite_houses, only: [:index, :create, :destroy]
   resources :profiles
   resources :profile_lands, only: [:index]
-  resources :cities, only: [:index] do 
-    member do 
-      get 'province'
-    end
-  end
+  resources :cities, only: [:index]
+  get '/cities/province', to: 'cities#province'
 
 
   

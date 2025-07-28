@@ -5,7 +5,7 @@ class CitiesController < ApplicationController
               else
                 City.none
               end
-
+debugger
     respond_to do |format|
       format.html
       format.turbo_stream { render turbo_stream: turbo_stream.update("city_select", partial: "cities/city_options", locals: { cities: @cities }) }
@@ -13,9 +13,7 @@ class CitiesController < ApplicationController
   end
 
   def province 
-    province = Province.new 
-    province.id = params[:id]
-    @cities = City.find_cities(province)
-    render json: @cities
+    @cities = City.where(province_id: params[:id]).order(:city_name)
+    render json: @cities.map { |city| { id: city.id, city_name: city.city_name } }
   end
 end

@@ -85,13 +85,20 @@
                 label: House.human_attribute_name(:property_type)}, class:"text-light-emphasis" %>
 
               <%= form.collection_select :province_id, Province.order(:province_name), :id, :province_name, 
-              { label: Province.model_name.human(count: 1) } , {class:"province province_select text-light-emphasis"} %> 
+              { label: Province.model_name.human(count: 1), prompt: "Select a province" }, 
+              { class: "province_select text-light-emphasis", onchange: "updateCities(this.value)" } %> 
                 
               <%= form.fields_for :address do |address_form| %>
-                <%= address_form.collection_select :city_id, City.order(:city_name), :id, :city_name, 
-                { label: City.model_name.human(count: 1)},  {class:"city_select text-light-emphasis"}  %>
-                <%= address_form.text_field :street, label: Address.human_attribute_name(:street), class:"text-light-emphasis" %>
+                <%= address_form.collection_select :city_id, [], :id, :city_name, 
+                    { label: City.model_name.human(count: 1) },  
+                    { class: "city_select text-light-emphasis" } %>
+                <%= address_form.text_field :street, label: Address.human_attribute_name(:street), 
+                    class: "text-light-emphasis" %>
               <% end %> 
+
+              
+              <%= render 'shered/dependent_select' %>
+              
               <div class="row">
                 <p class="text-center text-primary-emphasis"> <%= Dimention.model_name.human(count: 1)  %> </p>
                 <%= form.fields_for :dimention do |dimention_form| %>
