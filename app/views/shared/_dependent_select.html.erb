@@ -1,0 +1,35 @@
+              <script>
+                function updateCities(provinceId) {
+                  var citySelect = document.querySelector('.city_select');
+                  
+                  if (provinceId) {
+                    // Make the AJAX request
+                    var xhr = new XMLHttpRequest();
+                    xhr.open('GET', '/cities/province?id=' + provinceId, true);
+                    xhr.setRequestHeader('Accept', 'application/json');
+                    xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+                    
+                    xhr.onload = function() {
+                      if (xhr.status === 200) {
+                        var cities = JSON.parse(xhr.responseText);
+                        
+                        // Clear existing options
+                        citySelect.innerHTML = '<option value="">Select a city</option>';
+                        
+                        // Add new options
+                        cities.forEach(function(city) {
+                          var option = document.createElement('option');
+                          option.value = city.id;
+                          option.textContent = city.city_name;
+                          citySelect.appendChild(option);
+                        });
+                      }
+                    };
+                    
+                    xhr.send();
+                  } else {
+                    // If no province selected, clear cities
+                    citySelect.innerHTML = '<option value="">Select a city</option>';
+                  }
+                }
+              </script>
