@@ -1,5 +1,5 @@
 class FavoriteHousesController < ApplicationController
-  before_action :set_favorite_house, only: %i[ show edit update destroy ]
+  before_action :set_favorite_house, only: %i[ destroy ]
   before_action :authenticate_user!
   rescue_from ActiveRecord::RecordNotFound, with: :invalid_favorite_house
 
@@ -7,7 +7,9 @@ class FavoriteHousesController < ApplicationController
 
    # GET /favorite_houses or /favorite_houses.json
    def index
+    debugger
     @favorite_houses = FavoriteHouse.find_all_by_user(current_user).page(params[:page])
+    debugger
   end
 
   # POST /favorite_houses or /favorite_houses.json
@@ -62,12 +64,6 @@ class FavoriteHousesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_favorite_house
-      @favorite_house = FavoriteHouse.find(params[:id])
-    end
-
-  
 
     def invalid_house 
       logger.error "Attempt to access invalid house #{params[:id]}"
