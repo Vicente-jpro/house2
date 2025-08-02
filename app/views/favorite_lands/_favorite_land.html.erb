@@ -11,13 +11,14 @@
           <p class="card-text">
               <strong class="text-pink"><%= favorite_land.land.title_land %></strong> <br>
           </p>
-
-            <p class="text-primary-emphasis">     
-               <%= favorite_land.land.description %>
+            <p class="text-primary-emphasis">
+              <%= truncate_html(favorite_land.land.description) %>
             </p>
-
-            <div class="d-inline">
-              <strong class="text-pink"><%= favorite_land.land.price %> Kz</strong>
+        
+            <div class="row">
+              <div class="col">
+                <strong class="text-pink fs-5"><%= favorite_land.land.price %> Kz</strong>
+              </div>
             </div>
             
             <%= button_to "remover from favorite", favorite_land,
