@@ -67,7 +67,7 @@ gem 'rails-i18n', '~> 7.0'
 gem 'resque', '~> 2.6'
 gem 'truncate_html', '~> 0.9.3'
 gem 'whenever', '~> 1.0' , require: false
-  gem "pg", "~> 1.5"
+gem "pg", "~> 1.5"
 
 gem "dartsass-sprockets" 
 #gem "sassc-rails" 

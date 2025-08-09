@@ -19,4 +19,13 @@ nohup QUEUE=* bundle exec rake resque:work > log/resque_worker.log 2>&1 &
 
 echo "✅ Worker Resque rodando em background."
 
+# Atualiza o crontab com Whenever
+bundle exec whenever --update-crontab
+
+if [ $? -eq 0 ]; then
+  echo "✅ Crontab atualizado com sucesso!"
+else
+  echo "⚠️ Falha ao atualizar o crontab!"
+fi
+
 echo "🎉 Todos os serviços foram iniciados!"
